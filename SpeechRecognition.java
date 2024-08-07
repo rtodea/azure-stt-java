@@ -16,7 +16,7 @@ public class SpeechRecognition {
     }
 
     public static void recognizeFromMicrophone(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-        AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+        AudioConfig audioConfig = AudioConfig.fromWavFileInput("./samples/one-voice-some-static.wav");
         SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
         System.out.println("Speak into your microphone.");
