@@ -14,9 +14,10 @@ public class SpeechRecognition {
     private static String speechRegion = System.getenv("SPEECH_REGION");
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
-        setUpProxy();
+        // setUpProxy();
         // echoRequest();
         SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
+        speechConfig.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
         speechConfig.setSpeechRecognitionLanguage("en-US");
         recognizeFromWav(speechConfig);
     }
